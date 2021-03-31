@@ -1,6 +1,7 @@
 """Models for movie ratings app."""
 
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 db = SQLAlchemy()
 
@@ -18,6 +19,15 @@ class User(db.Model):
 
     def __repr__(self):
         return f'<User user_id={self.user_id} email={self.email}>'
+
+
+class Movie(db.Model):
+    __tablename__ = 'movies'
+
+    #fill in the rest 
+    
+    #Maily said to add this:
+    #release_date = db.Column(db.DateTime)
 
 
 def connect_to_db(flask_app, db_uri='postgresql:///ratings', echo=True):
@@ -39,3 +49,5 @@ if __name__ == '__main__':
     # query it executes.
 
     connect_to_db(app)
+
+
